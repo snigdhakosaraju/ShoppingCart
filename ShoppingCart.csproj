@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICalcProvider.cs" />
+    <Compile Include="CheckoutCart.cs" />
+    <Compile Include="ICalcProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="OfferService.cs" />
     <Compile Include="POSEntities.cs" />
     <Compile Include="Product.cs" />

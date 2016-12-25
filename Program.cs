@@ -10,17 +10,18 @@ namespace ShoppingCart
     {
         static void Main(string[] args)
         {
-            POSEntities.CalculateCartTotal(new List<string>() { "apple", "apple", "orange" ,"apple"});
-            POSEntities.PrintRecipt();
-            Console.WriteLine("==============================================================================================");
+            CheckoutCart myCart = new CheckoutCart();
+            myCart.CalculateCartTotal(new List<string>() { "apple", "apple", "orange", "apple" });
+            myCart.PrintRecipt();
+            Console.WriteLine("=================================================================================");
             Console.WriteLine("Enter 'exit' to Exit from Program");
             Console.WriteLine("Enter items in comma separated, Available items are 'apple' and 'orange'");
             string cmdLineArgs = Console.ReadLine();
             while (cmdLineArgs != "exit")
             {
-                POSEntities.CalculateCartTotal(cmdLineArgs.Split(new char[]{','}).Select(x=> x.ToString()).ToList()  );
-                POSEntities.PrintRecipt();
-                Console.WriteLine("==============================================================================================");
+                myCart.CalculateCartTotal(cmdLineArgs.Split(new char[] { ',' }).Select(x => x.ToString()).ToList());
+                myCart.PrintRecipt();
+                Console.WriteLine("=================================================================================");
                 Console.WriteLine("Enter 'exit' to Exit from Program");
                 Console.WriteLine("Enter items in comma separated, Available items are 'apple' and 'orange'");
 
