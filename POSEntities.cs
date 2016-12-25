@@ -58,12 +58,12 @@ namespace ShoppingCart
 
                     switch (saleItem.OfferName)
                     {
-                        //case "1Plus1":
-                        //    Apply2For1Price(saleItem);
-                        //    break;
-                        //case "3For2":
-                        //    Apply3For2Price(saleItem);
-                        //    break;
+                        case "1Plus1":
+                            Apply2For1Price(saleItem);
+                            break;
+                        case "3For2":
+                            Apply3For2Price(saleItem);
+                            break;
 
                         default:
                             _cartTotal += saleItem.Price;
