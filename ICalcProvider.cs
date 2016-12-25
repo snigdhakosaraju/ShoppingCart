@@ -11,7 +11,7 @@ namespace ShoppingCart
          double CalculateCartTotal(List<string> items);
     }
 
-    public class CalcProvider : ICalcProvider
+    public class CalcProvider
     {
         private double _cartTotal = 0.00;
 
@@ -22,18 +22,24 @@ namespace ShoppingCart
 
         public double Apply2For1Price(List<Product> _shoppingCart, Product saleItem)
         {
-            if (_shoppingCart == null)
+            try
             {
-                return saleItem.Price;
-               
-            }
-            int itemsInCart = _shoppingCart.Where(x => x.Name == saleItem.Name).Count();
+                if (_shoppingCart == null)
+                {
+                    return saleItem.Price;
 
-            if (itemsInCart % 2 == 0)
+                }
+                int itemsInCart = _shoppingCart.Where(x => x.Name == saleItem.Name).Count();
+
+                if (itemsInCart % 2 == 0)
+                {
+                    return saleItem.Price;
+                }
+            }
+            catch(Exception exp)
             {
-                return saleItem.Price;
+                throw exp;
             }
-
             return 0.00;
 
 
@@ -47,20 +53,24 @@ namespace ShoppingCart
 
         public double Apply3For2Price(List<Product> _shoppingCart,Product saleItem)
         {
-
-            if (_shoppingCart == null)
+            try
             {
-                return saleItem.Price;
-              
+                if (_shoppingCart == null)
+                {
+                    return saleItem.Price;
 
-            }
-            int itemsInCart = _shoppingCart.Where(x => x.Name == saleItem.Name).Count();
 
-            if (itemsInCart % 3 != 2)
+                }
+                int itemsInCart = _shoppingCart.Where(x => x.Name == saleItem.Name).Count();
+
+                if (itemsInCart % 3 != 2)
+                {
+                    return saleItem.Price;
+                }
+            }catch(Exception exp)
             {
-                return saleItem.Price;
+                throw exp;
             }
-
             return 0.00;
 
         }

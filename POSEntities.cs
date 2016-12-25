@@ -14,9 +14,11 @@ namespace ShoppingCart
 
         public static List<Product> GetAvailableProducts()
         {
-            if(_products == null)
+            try
             {
-                _products = new List<Product>()
+                if (_products == null)
+                {
+                    _products = new List<Product>()
                 {
                     new Product(){ID=1, Name="apple", Description="Apple", HasOffer=true,OfferName="1Plus1", Price=0.45},
                     new Product(){ID=2, Name="orange", Description="Orange", HasOffer=true,OfferName="3For2", Price=0.65}
@@ -24,6 +26,10 @@ namespace ShoppingCart
                 };
 
 
+                }
+            }catch(Exception exp)
+            {
+                throw exp;
             }
 
             return _products;
